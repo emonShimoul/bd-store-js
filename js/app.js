@@ -84,3 +84,24 @@ const updateTotal = () => {
   document.getElementById("total").innerText = parseFloat(grandTotal.toFixed(2));
 };
 
+// to show the details for single product
+const loadSingleProduct = (id) => {
+  const url = `https://fakestoreapi.com/products/${id}`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => displayDetails(data));
+}
+
+const displayDetails = (data) => {
+  console.log(data);
+  const displayDetails = document.getElementById('display-details');
+  displayDetails.textContent = '';
+  const div = document.createElement('div');
+  div.classList.add('border', 'border-3', 'rounded-3', 'border-secondary', 'p-3');
+  div.innerHTML = `
+  <p><span class="text-danger fw-bold">Title:</span> ${data.title}<p>
+  <p><span class="text-danger fw-bold">Description:</span> ${data.description}<p>
+  `;
+  displayDetails.appendChild(div);
+}
+
