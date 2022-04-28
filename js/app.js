@@ -40,3 +40,18 @@ const addToCart = (id, price) => {
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
 };
+
+const getInputValue = (id) => {
+  const element = document.getElementById(id).innerText;
+  const converted = parseFloat(element);
+  return converted;
+};
+
+// main price update function
+const updatePrice = (id, value) => {
+  const convertedOldPrice = getInputValue(id);
+  const convertPrice = parseFloat(value);
+  const total = convertedOldPrice + convertPrice;
+
+  document.getElementById(id).innerText = parseFloat(total.toFixed(2));
+};
