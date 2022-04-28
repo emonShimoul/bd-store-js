@@ -40,6 +40,8 @@ body {
 .cart-main {
   padding-right: 30px;
 }
+
+/* css media query */
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;
